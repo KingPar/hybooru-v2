@@ -15,11 +15,11 @@ RUN npm install && \
 
 FROM node:18.12.0-alpine
 
-ENV PORT=8086
+ENV PORT=3939
 
 WORKDIR /app
 
 COPY --from=builder /app .
 
-EXPOSE 8086
+EXPOSE 3939
 CMD ["npm", "start"]
