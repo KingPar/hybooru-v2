@@ -21,5 +21,5 @@ WORKDIR /app
 
 COPY --from=builder /app .
 
-EXPOSE 80
+EXPOSE 8086
 CMD ["npm", "start"]
