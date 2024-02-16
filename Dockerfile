@@ -15,7 +15,7 @@ RUN npm install && \
 
 FROM node:18.12.0-alpine
 
-ENV PORT=80
+ENV PORT=8086
 
 WORKDIR /app
 
