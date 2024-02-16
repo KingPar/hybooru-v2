@@ -1,0 +1,204 @@
+@import "../mixins";
+
+.Layout {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  min-height: 100%;
+  display: flex;
+
+  & > .sidebar {
+    width: 15em;
+    height: 100vh;
+    border-right: 1px solid rgba(127, 127, 127, 0.2);
+    position: sticky;
+    top: 0;
+    align-self: flex-start;
+    display: flex;
+    flex-direction: column;
+    z-index: 1;
+    transition: 0.1s background-color;
+    background: var(--page-background);
+    overflow: hidden;
+
+    &.simple {
+      position: fixed;
+      height: auto;
+
+      & > .sidebarContent {
+        display: none;
+      }
+    }
+
+    & > .logo {
+      font-size: 2.5em;
+      font-weight: bold;
+      text-align: center;
+      height: 4rem;
+      transition: background-color 0.1s, box-shadow 0.1s;
+      background: var(--page-background);
+      box-shadow: 0 0 0.5rem 0.5rem var(--page-background);
+      z-index: 3;
+
+      & > * {
+        display: block;
+        height: 100%;
+        width: 100%;
+      }
+    }
+
+    & > .sidebarContent {
+      padding: 0.5em;
+      flex: 1;
+      overflow: hidden auto;
+    }
+  }
+
+  & > .header {
+    position: fixed;
+    top: 0;
+    left: 15rem;
+    right: 0;
+    max-height: 4rem;
+    transition: max-height 0.1s ease-in-out, background-color 0.1s, box-shadow 0.1s;
+    background: var(--page-background);
+    box-shadow: 0 0 0.5rem 0.5rem var(--page-background);
+    z-index: 2;
+
+    .menuButton {
+      float: left;
+      margin: 0.6rem 0 0 0.5rem;
+      outline: none !important;
+
+      img {
+        height: 3rem;
+        width: 2rem;
+        opacity: 0.5;
+        object-fit: contain;
+        transition: opacity 0.1s;
+      }
+
+      &:hover, &:focus {
+        img {
+          opacity: 0.8;
+        }
+      }
+    }
+
+    .links {
+      display: flex;
+      align-items: center;
+      white-space: nowrap;
+
+      a {
+        padding: 0.25em 0.5em;
+        display: inline-block;
+      }
+
+      .ThemeSwitch {
+        padding: 0.1em 0.3em 0;
+      }
+    }
+
+    .search {
+      padding: 0 0.5em;
+      display: flex;
+      gap: 0.25em;
+
+      .settingsButton {
+        margin: 0.25em 0;
+
+        img {
+          height: 1.5em;
+          width: 1.5em;
+          object-fit: contain;
+          opacity: 0.25;
+
+          @include darkMode {
+            -webkit-filter: invert(100%);
+            filter: invert(100%);
+          }
+        }
+
+        &:focus, &:hover {
+          outline: none !important;
+
+          img {
+            opacity: 0.5;
+          }
+        }
+      }
+
+      .TagInput {
+        flex: 1;
+      }
+    }
+
+    .progress {
+      position: absolute;
+      top: calc(100% + 0.175em);
+      left: 0;
+      height: 0.1em;
+      background-color: #148cff;
+      animation: LayoutProgressAnimation 10s ease-out forwards;
+    }
+
+    @keyframes LayoutProgressAnimation {
+      0% { width: 0; opacity: 0; }
+      5% { opacity: 0; }
+      10% { opacity: 1; }
+      100% { width: 100% }
+    }
+
+    .SettingsMenu {
+      position: absolute;
+      top: 100%;
+      right: 0;
+      border-left: 1px solid rgba(127, 127, 127, 0.5);
+      border-bottom: 1px solid rgba(127, 127, 127, 0.5);
+    }
+  }
+
+  & > .contentDimmer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100vh;
+    z-index: 5;
+    transition: background 0.2s ease;
+    pointer-events: none;
+
+    &.active {
+      background: rgba(0, 0, 0, 0.50);
+      pointer-events: all;
+    }
+  }
+
+  & > .content {
+    flex: 1;
+    padding-top: 4.5rem;
+  }
+
+  &.mobile {
+    & > .sidebar {
+      position: fixed;
+      left: -100%;
+      transition: left 0.2s ease;
+      z-index: 10;
+
+      &.open {
+        left: 0;
+      }
+    }
+
+    & > .content {
+      transition: filter 0.2s  ease;
+    }
+
+    & > .header {
+      left: 0;
+    }
+  }
+}

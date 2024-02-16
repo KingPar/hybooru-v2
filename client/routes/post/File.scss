@@ -1,0 +1,81 @@
+
+.File {
+  display: block;
+  position: relative;
+  
+  .note {
+    position: absolute;
+    background: rgba(20, 140, 255, 0.1);
+    border: 1px solid rgba(20, 140, 255, 0.5);
+    min-width: 1em;
+    min-height: 1em;
+    cursor: pointer;
+    
+    &::before {
+      content: "";
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      border-style: solid;
+      border-width: 0 0 0.5em 0.5em;
+      border-color: transparent transparent rgba(20, 140, 255, 0.5) transparent;
+    }
+    
+    &:hover::after {
+      content: attr(data-content);
+      z-index: 5;
+      position: absolute;
+      top: calc(100% + 0.5rem);
+      left: -1px;
+      width: max-content;
+      padding: 0.1em 0.25em 0.25em;
+      color: var(--text-color);
+      background: var(--page-background);
+      border: 1px solid rgba(20, 140, 255, 0.5);
+      font-size: 75%;
+      text-align: left;
+      white-space: pre-line;
+      max-width: 300px;
+      pointer-events: none;
+    }
+  }
+  
+  .image, .video, .audio, .unknown {
+    display: block;
+    max-width: 100%;
+    max-height: 100%;
+  }
+  
+  .unknown {
+    position: relative;
+
+    img {
+      height: 12.5em;
+      width: auto;
+    }
+
+    &::after, &::before {
+      position: absolute;
+      left: 0.6rem;
+      right: 0.6rem;
+      text-align: center;
+      font-weight: bold;
+      color: #888;
+      text-transform: uppercase;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+
+    &::after {
+      content: attr(data-ext);
+      font-size: 300%;
+      bottom: 3rem;
+    }
+
+    &::before {
+      content: attr(data-size);
+      font-size: 130%;
+      bottom: 1.5rem;
+    }
+  }
+}

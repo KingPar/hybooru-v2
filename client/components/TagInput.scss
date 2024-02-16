@@ -1,0 +1,38 @@
+
+.TagInput {
+  input {
+    width: 100%;
+  }
+
+  .tags {
+    position: fixed;
+    border: 1px solid rgba(127, 127, 127, 0.8);
+    border-top: none;
+    background: var(--page-background);
+
+    .row {
+      display: block;
+      cursor: pointer;
+      padding: 0.25em;
+      font-size: 0.8em;
+      outline: none !important;
+
+      .posts {
+        float: right;
+        color: rgba(127, 127, 127, 0.5);
+      }
+
+      &:hover, &:focus {
+        background: rgba(127, 200, 255, 0.1);
+      }
+
+      &:nth-child(2n + 1) {
+        background: rgba(127, 200, 255, 0.05);
+
+        &:hover, &:focus {
+          background: rgba(127, 200, 255, 0.1);
+        }
+      }
+    }
+  }
+}

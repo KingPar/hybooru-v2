@@ -1,0 +1,83 @@
+
+.IndexPage {
+  text-align: center;
+
+  .motdWrap {
+    height: 15em;
+    text-align: center;
+    display: inline-block;
+    margin: 0.5em auto -5em;
+    overflow: hidden;
+
+    .File {
+      height: 100%;
+      max-width: 20em;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+
+  .header {
+    margin-top: 4rem;
+    font-size: 4em;
+    font-weight: bolder;
+  }
+
+  .links {
+    a {
+      padding: 0.5em;
+      display: inline-block;
+    }
+  }
+
+  .search {
+    display: flex;
+    justify-content: center;
+    margin: 0.5em 1em;
+
+    .TagInput {
+      flex: 0 1 15em;
+    }
+    
+    button {
+      margin-left: 0.5em;
+    }
+  }
+
+  .stats {
+    font-size: 90%;
+    font-weight: lighter;
+
+    a:not(:hover) {
+      color: inherit;
+    }
+
+    div {
+      display: inline-block;
+      margin: 0.5em;
+
+      span {
+        font-weight: normal;
+      }
+    }
+  }
+
+  .footer {
+    margin-top: 0.5em;
+    color: gray;
+    font-size: 66%;
+    line-height: 170%;
+  }
+  
+  .updateInfo {
+    position: absolute;
+    margin-left: 0.75em;
+  }
+
+  .ThemeSwitch {
+    position: fixed;
+    top: 0.5em;
+    right: 0.5em;
+  }
+}

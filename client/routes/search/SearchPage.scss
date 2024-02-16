@@ -1,0 +1,67 @@
+
+.SearchPage {
+  & > .header .links .total {
+    float: right;
+    opacity: 0.5;
+    font-size: 75%;
+    margin-left: auto;
+    padding-right: 0.75em;
+    white-space: normal;
+    text-align: right;
+    line-height: 100%;
+  }
+
+  & > .content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+
+    .posts {
+      line-height: 0;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+
+      img {
+        display: inline-block;
+        line-height: 100%;
+      }
+
+      .placeholder {
+        display: inline-block;
+        width: 7.5em;
+        margin: 0 0.5em;
+      }
+    }
+
+    .bottomPad {
+      position: relative;
+      height: 8em;
+
+      &.end::before {
+        content: "End";
+        position: absolute;
+        top: 0.5em;
+        left: 0.75em;
+        opacity: 0.5;
+        font-size: 75%;
+      }
+    }
+
+    .empty {
+      font-weight: bold;
+      margin-top: 1em;
+      font-size: 150%;
+      opacity: 0.7;
+    }
+
+    .Spinner {
+      margin: 2.5em auto;
+    }
+
+    .Pagination {
+      margin-top: auto;
+      padding-top: 3em;
+    }
+  }
+}

@@ -1,0 +1,49 @@
+{
+	"port": 3939,
+	"host": null,
+	"hydrusDbPath": "/home/par/hydrus/hydrus-client",
+	"appName": "Hybooru",
+	"appDescription": "Hydrus-based booru-styled imageboard in React",
+	"adminPassword": "Miku123",
+	"isTTY": null,
+	"importBatchSize": 8192,
+	"db": {
+		"user": "hybooru",
+		"host": "127.0.0.1",
+		"database": "hybooru",
+		"password": "hybooru",
+		"port": 5432
+	},
+	"posts": {
+		"services": null,
+		"filesPathOverride": "/mnt/Ferry/Hydrus/client_files",
+		"thumbnailsPathOverride": "/home/par/hydrus/thumbs",
+		"thumbnailsMode": "fit",
+		"pageSize": 72,
+		"cachePages": 5,
+		"cacheRecords": 1024,
+		"maxPreviewSize": 104857600
+	},
+	"tags": {
+		"services": null,
+		"motd": null,
+		"untagged": "-*",
+		"ignore": [],
+		"blacklist": null,
+		"whitelist": null,
+		"resolveRelations": true,
+		"reportLoops": false,
+		"searchSummary": 39
+	},
+	"rating": {
+		"enabled": false,
+		"stars": 5,
+		"serviceName": null
+	},
+	"versionCheck": {
+		"enabled": true,
+		"owner": "funmaker",
+		"repo": "hybooru",
+		"cacheLifeMs": 3600000
+	}
+}
